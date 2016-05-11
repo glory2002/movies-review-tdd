@@ -3,7 +3,7 @@ class CreateMovies < ActiveRecord::Migration
     create_table :movies do |t|
       t.string :title
       t.string :image
-      t.references :cateogry
+      t.references :category, index: true, foreign_key: true
 
       t.timestamps null: false
     end

@@ -25,10 +25,12 @@ ActiveRecord::Schema.define(version: 20160511082904) do
   create_table "movies", force: :cascade do |t|
     t.string   "title"
     t.string   "image"
-    t.integer  "cateogry_id"
+    t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "movies", ["category_id"], name: "index_movies_on_category_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.string   "title"
@@ -40,5 +42,6 @@ ActiveRecord::Schema.define(version: 20160511082904) do
 
   add_index "reviews", ["movie_id"], name: "index_reviews_on_movie_id", using: :btree
 
+  add_foreign_key "movies", "categories"
   add_foreign_key "reviews", "movies"
 end
