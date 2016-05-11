@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  get 'reviews/index'
+  root "categories#index"
 
-  get 'movies/index'
-
-  get 'movies/show'
-
-  get 'categories/index'
-
+    resources :categories do
+        resources :movies do
+            resources :reviews
+        end
+    end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
