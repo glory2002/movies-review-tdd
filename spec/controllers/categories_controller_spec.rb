@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe CategoriesController, type: :controller do
 
   describe "GET #index" do
-    it "returns http success" do
+    let(:categories) { create_list(:category_id, 3) }
+    it "assigns all categories to @categories" do
       get :index
-      expect(response).to have_http_status(:success)
+      expect(assigns(:categories)).to eq categories
     end
   end
-
 end
