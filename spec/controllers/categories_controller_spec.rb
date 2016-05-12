@@ -2,11 +2,14 @@ require 'rails_helper'
 
 RSpec.describe CategoriesController, type: :controller do
 
+  before do
+    @category = Category.create!(name: "Movie reviews contollers")
+  end
+
   describe "GET #index" do
-    let(:categories) { create_list(:category_id, 3) }
-    it "assigns all categories to @categories" do
-      get :index
-      expect(assigns(:categories)).to eq categories
+    it "returns http success" do
+      get :index, id: @category
+      expect(response).to have_http_status(:success)
     end
   end
 end

@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
 
     if @review.update(review_params)
-      render json: { review: @review}m status: :accepted
+      render json: { review: @review}, status: :accepted
     else
       render json: { errors: @review.errors }, status: :unprocessable_entity
     end
