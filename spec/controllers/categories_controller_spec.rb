@@ -12,4 +12,16 @@ RSpec.describe CategoriesController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
+
+
+  describe "GET #index" do
+    # it { should have_selector('h2', 'Movie categories') }
+    let(:categories) { create_list(:category, 4) }
+
+    it "assigns all categories to @categories" do
+      get :index, id: @category
+      expect(assigns(:categories)).to eq ([@category])
+    end
+  end
+
 end
