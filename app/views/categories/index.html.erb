@@ -1,6 +1,6 @@
 <h2>Movie categories</h2>
-<ul>
-  <li>
-    <%= category.name %>
-  </li>
-</ul>
+<ol>
+    <% @categories.each do |category| %>
+    <li><%= category.name %>  </li>
+    <% end %>
+</ol>

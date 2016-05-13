@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
+
   def index
+    @category = Category.find(params[:category_id])
     @movies = @category.movies
 
     respond_to do |format|
@@ -8,13 +10,12 @@ class MoviesController < ApplicationController
     end
   end
 
-    def show
-        @category = Category.find(params[:category_id])
-        @movie = @category.movies.find(params[:id])
+  def show
+    @movie = @movies.find(params[:id])
 
-      respond_to do |format|
-        format.html
-        format.json { render json: { category: @category, movie: @movie } }
+    respond_to do |format|
+      format.html
+      format.json { render json: { category: @category, movie: @movie } }
     end
   end
 

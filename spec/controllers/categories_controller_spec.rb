@@ -15,7 +15,6 @@ RSpec.describe CategoriesController, type: :controller do
 
 
   describe "GET #index" do
-    # it { should have_selector('h2', 'Movie categories') }
     let(:categories) { create_list(:category, 4) }
 
     it "assigns all categories to @categories" do
